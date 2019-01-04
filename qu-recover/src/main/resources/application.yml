@@ -1,0 +1,30 @@
+server:
+  address: localhost
+  port: 80
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/account?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+    # druid\u8FDE\u63A5\u6C60
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat,wall,log4j
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+mybatis:
+  # mapper\u6620\u5C04\u5730\u5740
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+
